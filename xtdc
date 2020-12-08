@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+#######################
+#    ^...^  `^...^´   #
+#   / o,o \ / O,O \   #
+#   |):::(| |):::(|   #
+# ====" "=====" "==== #
+#         TdC         #
+#      1998-2020      #
+#######################
+# Toca das Corujas
+# Códigos Binários, Funções de Onda e Teoria do Orbital Molecular Inc.
+# Unidade Barão Geraldo CX
+
+xtdc_colors(){
+NC='\e[0m'  
+#regular colors #bold            #underline       #background    #high intensity  #boldhighint      #highintensityback
+bla='\e[0;30m'; bbla='\e[1;30m'; ubla='\e[4;30m'; obla='\e[40m'; ibla='\e[0;90m'; bibla='\e[1;90m'; oibla='\e[0;100m';
+red='\e[0;31m'; bred='\e[1;31m'; ured='\e[4;31m'; ored='\e[41m'; ired='\e[0;91m'; bired='\e[1;91m'; oired='\e[0;101m';
+gre='\e[0;32m'; bgre='\e[1;32m'; ugre='\e[4;32m'; ogre='\e[42m'; igre='\e[0;92m'; bigre='\e[1;92m'; oigre='\e[0;102m';
+yel='\e[0;33m'; byel='\e[1;33m'; uyel='\e[4;33m'; oyel='\e[43m'; iyel='\e[0;93m'; biyel='\e[1;93m'; oiyel='\e[0;103m';
+blu='\e[0;34m'; bblu='\e[1;34m'; ublu='\e[4;34m'; oblu='\e[44m'; iblu='\e[0;94m'; biblu='\e[1;94m'; oiblu='\e[0;104m';
+pur='\e[0;35m'; bpur='\e[1;35m'; upur='\e[4;35m'; opur='\e[45m'; ipur='\e[0;95m'; bipur='\e[1;95m'; oipur='\e[0;105m';
+cya='\e[0;36m'; bcya='\e[1;36m'; ucya='\e[4;36m'; ocya='\e[46m'; icya='\e[0;96m'; bicya='\e[1;96m'; oicya='\e[0;106m';
+whi='\e[0;37m'; bwhi='\e[1;37m'; uwhi='\e[4;37m'; owhi='\e[47m'; iwhi='\e[0;97m'; biwhi='\e[1;97m'; oiwhi='\e[0;107m';
+}
+
+
+xtdc_loga(){
+agora="$(date +%Y_%m_%d_%H_%M_%S)"
+echo $agora $1 >> ~/xtdc_log.txt
+}
+
+
+xtdc_funcs(){
+clear
+xtdc_colors
+vari=$(sed -nr '/\(\)/p' "${BASH_SOURCE[0]}" | sed 's/...$//')
+last=$(date -r "${BASH_SOURCE[0]}" "+%Y_%m_%d_%H_%M_%S")
+printf "${bbla}${ocya}LISTA DE FUNÇÕES${NC}${NC} ${bgre}XTDC 2020${NC} ${biblu}${owhi}ATUALIZADA EM${NC}${NC} ${bwhi}${ored}$last${NC}${NC}""%s\n"
+printf "${bred}${obla}${vari[@]}${NC}${NC}""%s\n" 
+}
+
+
+xtdc_printa(){
+agora=$(date +%Y_%m_%d_%H_%M_%S)
+xfce4-screenshooter -rc
+arquivo=$(ls -t /tmp | head -n 1)
+mv /tmp/"$arquivo" "$HOME/Imagens"/captura_de_tela_"$agora".png
+}
+
+
+xtdc_rascunho(){
+xclip -selection clipboard -o > $HOME/Documentos/rascunho_"$(date +%Y_%m_%d_%H_%M_%S).txt"
+}
+$1
