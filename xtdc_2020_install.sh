@@ -31,7 +31,7 @@ sudo add-apt-repository -y ppa:"$ppas"
 done
 
 #LIMPA SOURCES.LIST
-sudo sudo sed -i.bkp -e '/^\s*#.*$/d' -e '/^\s*$/d' /etc/apt/sources.list
+sudo sed -i.bkp -e '/^\s*#.*$/d' -e '/^\s*$/d' /etc/apt/sources.list
 sort /etc/apt/sources.list  uniq -u
 sudo apt-get update
 }
@@ -51,14 +51,13 @@ GRAFICOS="eog evince shotwell"
 IDIOMA="language-pack-pt language-pack-pt-base language-pack-gnome-pt language-pack-gnome-pt-base"
 OUTROS="gvfs-backends gvfs-fuse samba-libs fusesmb xclip"
 
-
 for pkg in $SISTEMA $FERRAMENTAS $MULTIMIDIA $INTERNET $GRAFICOS $IDIOMA $OUTROS
 do
 sudo apt install -y "$pkg" --no-install-recommends
 done
 
 #ANYDESK
-sudo wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -
+sudo wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 sudo echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
 sudo apt update
 sudo apt install -y anydesk
@@ -67,7 +66,7 @@ sudo apt install -y anydesk
 
 xtdc_chrome(){
 #INSTALA PPA E CHROME COM AS EXTENSÕES
-sudo wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo wget -qO - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 sudo apt-get update
 sudo apt-get install -y google-chrome-stable --no-install-recommends
@@ -84,6 +83,7 @@ inst_chrome_ext aohghmighlieiainnegkcijnfilokake #Documentos
 inst_chrome_ext ghbmnnjooekpmoecnnnilnnbdlolhkhi #Documentos OFFILNE
 inst_chrome_ext gbkeegbaiigmenfmjfclcdgdpimamgkj #Editor do Office
 )
+
 for ext in "${exts[@]}"
 do
 preferences_dir_path="/opt/google/chrome/extensions"
@@ -161,8 +161,6 @@ Icon=/usr/share/icons/xtdc_2020_icons/apps/google-chrome-incognito.svg
 Type=Application
 Categories=Network;WebBrowser;
 MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
-Actions=new-window;new-private-window;
-Path=
 StartupNotify=false
 EOF
 
@@ -236,7 +234,7 @@ Exec=pavucontrol
 Icon=multimedia-volume-control
 StartupNotify=true
 Type=Application
-Categories=AudioVideo;Audio;Mixer;GTK;
+Categories=AudioVideo;
 Keywords=volume;som;áudio;
 EOF
 
@@ -266,7 +264,7 @@ Type=Application
 Name=Geany
 Comment=Editor de texto simples (Bloco de Notas)
 Exec=geany %F
-Icon=/usr/share/icons/xtdc_2020_icons/apps/geany.png
+Icon=geany
 Terminal=false
 Categories=Office
 MimeType=text/plain;text/x-chdr;text/x-csrc;text/x-c++hdr;text/x-c++src;text/x-java;text/x-dsrc;text/x-pascal;text/x-perl;text/x-python;application/x-php;application/x-httpd-php3;application/x-httpd-php4;application/x-httpd-php5;application/xml;text/html;text/css;text/x-sql;text/x-diff;
@@ -314,7 +312,7 @@ XTDC_TRADUZIDO=SIM
 Name=Gerenciador de Arquivos
 Comment=Gerenciador de Arquivos (Explorer)
 Exec=thunar %F
-Icon=Thunar
+Icon=thunar
 Terminal=false
 StartupNotify=true
 Type=Application
@@ -348,7 +346,7 @@ TryExec=pkexec
 Exec=pkexec bleachbit
 Icon=bleachbit
 Categories=System;
-Keywords=limpeza;limpa;clean;performances;free;privacy;
+Keywords=limpeza;limpa;
 StartupNotify=true
 EOF
 
@@ -787,7 +785,7 @@ EOF
 
 xtdc_tema(){
 #BAIXANDO PACOTES
-cd "/xtdc_2020_files" || exit
+cd "$PWD" || exit
 xtdc_gred http://bit.do/xtdc_2020_icons xtdc_2020_icons.tar.gz;
 xtdc_gred http://bit.do/xtdc_2020_theme xtdc_2020_theme.tar.gz;
 xtdc_gred http://bit.do/xtdc_2020_ttf xtdc_2020_ttf.tar.gz;
@@ -835,7 +833,7 @@ indicators=~host;~spacer;~session;~language;~a11y;~clock;~power;
 clock-format=%d %b, %H:%M
 EOF
 
-sudo sudo chmod 777 /usr/share/lightdm/lightdm-gtk-greeter.conf.d/30_xubuntu.conf
+sudo chmod 777 /usr/share/lightdm/lightdm-gtk-greeter.conf.d/30_xubuntu.conf
 sudo cat <<EOF > /usr/share/lightdm/lightdm-gtk-greeter.conf.d/30_xubuntu.conf
 [greeter]
 background=#000000
@@ -846,71 +844,14 @@ screensaver-timeout=60
 EOF
 
 #APAGA ARQUIVOS BAIXADOS
-sudo rm -rf /xtdc_2020_files/*.tar.gz
+sudo rm -rf "$PWD"/*.tar.gz
 }
 
 
 xtdc_exe(){
-sudo touch /bin/xtdc
+sudo curl -L -o "xtdc" "https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc"
+sudo mv xtdc /bin/xtdc
 sudo chmod 777 /bin/xtdc
-sudo cat <<EOF > /bin/xtdc
-#!/bin/bash
-#
-#######################
-#    ^...^  `^...^´   #
-#   / o,o \ / O,O \   #
-#   |):::(| |):::(|   #
-# ====" "=====" "==== #
-#         TdC         #
-#      1998-2020      #
-#######################
-# Toca das Corujas
-# Códigos Binários, Funções de Onda e Teoria do Orbital Molecular Inc.
-# Unidade Barão Geraldo CX
-
-xtdc_colors(){
-NC='\e[0m'  
-#regular colors #bold            #underline       #background    #high intensity  #boldhighint      #highintensityback
-bla='\e[0;30m'; bbla='\e[1;30m'; ubla='\e[4;30m'; obla='\e[40m'; ibla='\e[0;90m'; bibla='\e[1;90m'; oibla='\e[0;100m';
-red='\e[0;31m'; bred='\e[1;31m'; ured='\e[4;31m'; ored='\e[41m'; ired='\e[0;91m'; bired='\e[1;91m'; oired='\e[0;101m';
-gre='\e[0;32m'; bgre='\e[1;32m'; ugre='\e[4;32m'; ogre='\e[42m'; igre='\e[0;92m'; bigre='\e[1;92m'; oigre='\e[0;102m';
-yel='\e[0;33m'; byel='\e[1;33m'; uyel='\e[4;33m'; oyel='\e[43m'; iyel='\e[0;93m'; biyel='\e[1;93m'; oiyel='\e[0;103m';
-blu='\e[0;34m'; bblu='\e[1;34m'; ublu='\e[4;34m'; oblu='\e[44m'; iblu='\e[0;94m'; biblu='\e[1;94m'; oiblu='\e[0;104m';
-pur='\e[0;35m'; bpur='\e[1;35m'; upur='\e[4;35m'; opur='\e[45m'; ipur='\e[0;95m'; bipur='\e[1;95m'; oipur='\e[0;105m';
-cya='\e[0;36m'; bcya='\e[1;36m'; ucya='\e[4;36m'; ocya='\e[46m'; icya='\e[0;96m'; bicya='\e[1;96m'; oicya='\e[0;106m';
-whi='\e[0;37m'; bwhi='\e[1;37m'; uwhi='\e[4;37m'; owhi='\e[47m'; iwhi='\e[0;97m'; biwhi='\e[1;97m'; oiwhi='\e[0;107m';
-}
-
-
-xtdc_loga(){
-agora="$(date +%Y_%m_%d_%H_%M_%S)"
-echo $agora $1 >> /xtdc_2020_files/log.txt
-}
-
-
-xtdc_funcs(){
-clear
-xtdc_colors
-vari=$(sed -nr '/\(\)/p' "${BASH_SOURCE[0]}" | sed 's/...$//')
-last=$(date -r "${BASH_SOURCE[0]}" "+%Y_%m_%d_%H_%M_%S")
-printf "${bbla}${ocya}LISTA DE FUNÇÕES${NC}${NC} ${bgre}XTDC 2020${NC} ${biblu}${owhi}ATUALIZADA EM${NC}${NC} ${bwhi}${ored}$last${NC}${NC}""%s\n"
-printf "${bred}${obla}${vari[@]}${NC}${NC}""%s\n" 
-}
-
-
-xtdc_printa(){
-agora=$(date +%Y_%m_%d_%H_%M_%S)
-xfce4-screenshooter -rc
-arquivo=$(ls /tmp -Art | tail -n 1)
-mv /tmp/"$arquivo" "$HOME/Imagens"/captura_de_tela_"$agora".png
-}
-
-
-xtdc_rascunho(){
-xclip -selection clipboard -o > $HOME/Documentos/rascunho_"$(date +%Y_%m_%d_%H_%M_%S).txt"
-}
-$1
-EOF
 }
 
 
@@ -960,4 +901,4 @@ xtdc_install
 
 
 agora=$(date +%Y_%m_%d_%H_%M_%S)
-echo "$agora" >> /xtdc_2020_files/log.txt
+echo "$agora" >> ~/xtdc_log.txt
