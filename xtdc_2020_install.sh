@@ -312,7 +312,7 @@ XTDC_TRADUZIDO=SIM
 Name=Gerenciador de Arquivos
 Comment=Gerenciador de Arquivos (Explorer)
 Exec=thunar %F
-Icon=Thunar
+Icon=thunar
 Terminal=false
 StartupNotify=true
 Type=Application
@@ -490,7 +490,6 @@ StartupNotify=true
 OnlyShowIn=XFCE;
 X-XfcePluggable=true
 EOF
-
 
 #MOUSE
 sudo cat <<EOF > /usr/share/applications/xfce-mouse-settings.desktop
@@ -784,8 +783,9 @@ EOF
 
 
 xtdc_tema(){
+RAIZ=$PWD
 #BAIXANDO PACOTES
-cd "$PWD" || exit
+cd "$RAIZ" || exit
 xtdc_gred http://bit.do/xtdc_2020_icons xtdc_2020_icons.tar.gz;
 xtdc_gred http://bit.do/xtdc_2020_theme xtdc_2020_theme.tar.gz;
 xtdc_gred http://bit.do/xtdc_2020_ttf xtdc_2020_ttf.tar.gz;
@@ -844,7 +844,7 @@ screensaver-timeout=60
 EOF
 
 #APAGA ARQUIVOS BAIXADOS
-sudo rm -rf "$PWD"/*.tar.gz
+sudo rm -rf "$RAIZ"/*.tar.gz
 }
 
 
@@ -892,7 +892,7 @@ xtdc_ppa && xtdc_pkg && xtdc_chrome && xtdc_limpa_pkg && xtdc_limpa_atalhos && x
 }
 
 
-TIMEFORMAT="A instalação demorou %0lR"
+TIMEFORMAT="%0lR"
 
 
 time {
