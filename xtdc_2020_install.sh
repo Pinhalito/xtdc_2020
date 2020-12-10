@@ -11,6 +11,8 @@
 # Códigos Binários, Funções de Onda e Teoria do Orbital Molecular Inc.
 # Unidade Barão Geraldo CX
 
+
+#LISTA DE PPAS DOS PROGRAMAS UTILIZADOS
 xtdc_ppa(){
 xtdc_ppas=(
 cubic-wizard/release
@@ -37,8 +39,10 @@ sudo apt-get update
 }
 
 
+#INSTALA OS PROGRAMAS SEPARADOS POR GRUPOS
 xtdc_pkg(){
 sudo apt-get update
+#O CURL É INSTALADO PRIMEIRO PARA PODERMOS INSTALAR O RCLONE VIA SCRIPT
 sudo apt-get install -y curl
 curl https://rclone.org/install.sh | sudo bash
 
@@ -56,7 +60,7 @@ do
 sudo apt install -y "$pkg" --no-install-recommends
 done
 
-#ANYDESK
+#ANYDESK - CONTROLE REMOTO DE COMPUTADORES
 sudo wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 sudo echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
 sudo apt update
@@ -99,7 +103,19 @@ done
 
 
 xtdc_limpa_pkg(){
-sudo apt-get purge -y apport apport-symptoms yelp yelp-xsl snapd aspell
+remover=(
+apport
+apport-symptoms
+yelp
+yelp-xsl
+snapd
+aspell
+)
+for removidos in "${remover[@]}"
+do
+sudo apt-get purge -y "$removidos"
+done
+
 sudo apt-get autoremove
 sudo apt-get autoclean
 sudo rm -rf /var/cache/apt/archives/*.deb
@@ -111,6 +127,7 @@ sudo rm -rf /usr/share/xubuntu/applications/xfhelp4.desktop
 atalhos=(/usr/share/applications/*.desktop)
 for ata in "${atalhos[@]}"
 do
+#ESCONDE TODOS OS ATALHOS
 sudo sed -i "$ { s/^.*$/&\n\NoDisplay\=true/ }" "$ata"
 sudo sed -i '/Name\[/d' "$ata"
 sudo sed -i '/Comment\[/d' "$ata"
@@ -392,7 +409,6 @@ Comment=Calculadora
 Categories=Utility;
 EOF
 
-
 #MONITOR
 sudo cat <<EOF > /usr/share/applications/xfce-display-settings.desktop
 [Desktop Entry]
@@ -475,7 +491,7 @@ X-AppStream-Ignore=true
 X-Ubuntu-Gettext-Domain=software-properties
 EOF
 
-#TIPOS DE ARQUIVOS
+#EDITOR DE TIPOS DE ARQUIVOS
 sudo cat <<EOF > /usr/share/applications/xfce4-mime-settings.desktop
 [Desktop Entry]
 XTDC_TRADUZIDO=SIM
@@ -508,7 +524,7 @@ X-XfcePluggable=true
 X-XfceHelpPage=mouse
 EOF
 
-#SESSÂO
+#INICIALIZAÇÃO E SESSÃO
 sudo cat <<EOF > /usr/share/applications/xfce-session-settings.desktop
 [Desktop Entry]
 XTDC_TRADUZIDO=SIM
@@ -849,6 +865,7 @@ sudo rm -rf "$RAIZ"/*.tar.gz
 
 
 xtdc_exe(){
+#ARQUIVO COM FUNÇÕES
 sudo curl -L -o "xtdc" "https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc"
 sudo mv xtdc /bin/xtdc
 sudo chmod 777 /bin/xtdc
@@ -856,6 +873,7 @@ sudo chmod 777 /bin/xtdc
 
 
 xtdc_gred(){
+#OS ARQUIVOS DE CONFIGURAÇÃO ESTÂO NO GOOGLE DRIVE E SUAS URLS REDUZIDAS COM BIT.DO
 aberto=$(curl -sIL "$1" 2>&1 | awk '/^Location/ {print $2}' | tail -n1);
 reduzido=$(echo "$aberto" | cut -d'/' -f 6)
 #curl -L -o "$2" "https://drive.google.com/uc?export=download&id=""$reduzido"
@@ -864,6 +882,7 @@ wget --no-check-certificate "https://docs.google.com/uc?export=download&id=""$re
 
 
 xtdc_colors(){
+#CÓDIGOS DE CORES PARA MENSAGENS NO TERMINAL
 NC='\e[0m'  
 #regular colors #bold            #underline       #background    #high intensity  #boldhighint      #highintensityback
 bla='\e[0;30m'; bbla='\e[1;30m'; ubla='\e[4;30m'; obla='\e[40m'; ibla='\e[0;90m'; bibla='\e[1;90m'; oibla='\e[0;100m';
@@ -878,6 +897,7 @@ whi='\e[0;37m'; bwhi='\e[1;37m'; uwhi='\e[4;37m'; owhi='\e[47m'; iwhi='\e[0;97m'
 
 
 xtdc_funcs(){
+#LISTA FUNÇÕES DESSE SCRIPT
 clear
 xtdc_colors
 vari=$(sudo sed -nr '/\(\)/p' "${BASH_SOURCE[0]}" | sudo sed 's/...$//')
@@ -886,19 +906,19 @@ printf "${bbla}${ocya}LISTA DE FUNÇÕES${NC}${NC} ${bgre}XTDC 2020${NC} ${biblu
 printf "${bred}${obla}${vari}${NC}${NC}""%s\n" 
 }
 
-
+#CHAMADA DE TODAS AS FUNÇÕES A SEREM INSTALADAS
 xtdc_install(){
 xtdc_ppa && xtdc_pkg && xtdc_chrome && xtdc_limpa_pkg && xtdc_limpa_atalhos && xtdc_atalhos && xtdc_tema && xtdc_exe
 }
 
-
+#FORMATO DE SAÍDA PARA O COMANDO TIME
 TIMEFORMAT="%0lR"
 
-
+#MONITORA TEMPO DE EXECUÇÃO DA FUNÇÃO XTDC_INSTALL
 time {
 xtdc_install
 }
 
-
+#LOGA O FIM DA INSTALAÇÃO
 agora=$(date +%Y_%m_%d_%H_%M_%S)
 echo "$agora" >> ~/xtdc_log.txt
