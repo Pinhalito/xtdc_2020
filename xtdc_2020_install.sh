@@ -204,7 +204,6 @@ Comment=Cliente BitTorrent
 Exec=transmission-gtk %U
 Icon=transmission
 Terminal=false
-TryExec=transmission-gtk
 Type=Application
 StartupNotify=true
 MimeType=application/x-bittorrent;x-scheme-handler/magnet;
@@ -261,7 +260,6 @@ sudo cat <<EOF > /usr/share/applications/evince.desktop
 XTDC_TRADUZIDO=SIM
 Name=Visualizador de documentos PDF
 Comment=Visualizador de documentos PDF
-TryExec=evince
 Exec=evince %U
 StartupNotify=true
 Terminal=false
@@ -295,7 +293,6 @@ sudo cat <<EOF > /usr/share/applications/eog.desktop
 XTDC_TRADUZIDO=SIM
 Name=Visualizador de imagens
 Comment=Visualizador de imagens
-TryExec=eog
 Exec=eog %U
 Icon=eog
 StartupNotify=true
@@ -344,7 +341,6 @@ XTDC_TRADUZIDO=SIM
 Type=Application
 Name=Limpeza do sistema
 Comment=Limpeza do sistema
-TryExec=bleachbit
 Exec=bleachbit
 Icon=bleachbit
 Categories=System;
@@ -359,7 +355,6 @@ XTDC_TRADUZIDO=SIM
 Type=Application
 Name=Limpeza do sistema (como ROOT)
 Comment=Limpeza do sistema (como ROOT)
-TryExec=pkexec
 Exec=pkexec bleachbit
 Icon=bleachbit
 Categories=System;
@@ -446,7 +441,6 @@ sudo cat <<EOF > /usr/share/applications/file-roller.desktop
 XTDC_TRADUZIDO=SIM
 Name=Gerenciador de arquivos compactados (Winzip)
 Comment=Gerenciador de arquivos zip, rar, 7z
-TryExec=file-roller
 Exec=file-roller %U
 StartupNotify=true
 Terminal=false
@@ -565,7 +559,6 @@ sudo cat <<EOF > /usr/share/applications/gparted.desktop
 [Desktop Entry]
 XTDC_TRADUZIDO=SIM
 Name=GParted
-X-GNOME-FullName=GParted 
 Comment=Editor de partições e discos
 Exec=/usr/sbin/gparted %f
 Icon=gparted
@@ -588,17 +581,15 @@ Terminal=false
 Type=Application
 Categories=System;
 StartupNotify=true
-X-Ubuntu-Gettext-Domain=gnome-system-tools
 EOF
 
 #BAOBAB
-sudo cat <<EOF > /usr/share/applications/org.gnome.baobab.desktop
+sudo cat <<EOF > /usr/share/applications/baobab.desktop
 [Desktop Entry]
 XTDC_TRADUZIDO=SIM
 Name=Analisador de uso de disco
 Comment=Verifique o tamanho de pastas e o espaço disponível em disco
 Keywords=armazenamento;espaço;limpeza;
-TryExec=baobab
 Exec=baobab
 Icon=baobab
 Terminal=false
@@ -610,12 +601,11 @@ DBusActivatable=true
 EOF
 
 #MONITOR DO SISTEMA
-sudo cat <<EOF > /usr/share/applications/gnome-system-monitor-kde.desktop
+sudo cat <<EOF > /usr/share/applications/gnome-system-monitor.desktop
 [Desktop Entry]
 XTDC_TRADUZIDO=SIM
 Name=Monitor do Sistema
 Comment=Gerencie programas rodando atualmente
-TryExec=gnome-system-monitor
 Exec=gnome-system-monitor
 Icon=utilities-system-monitor
 Terminal=false
@@ -623,7 +613,6 @@ Type=Application
 StartupNotify=true
 Categories=System;
 Keywords=tarefas;sistema;
-X-Ubuntu-Gettext-Domain=gnome-system-monitor
 EOF
 
 #ANYFILE
@@ -634,7 +623,6 @@ Name=AnyDesk
 Exec=/usr/bin/anydesk %u
 Icon=anydesk
 Terminal=false
-TryExec=anydesk
 Categories=System;
 MimeType=x-scheme-handler/anydesk;
 EOF
@@ -652,6 +640,9 @@ application/postscript=evince.desktop
 application/rtf=google-chrome.desktop
 application/tab-separated-values=google-chrome.desktop
 application/vnd.ms-xpsdocument=evince.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop;
 application/x-ar=file-roller.desktop
 application/x-arj=file-roller.desktop
 application/x-bzip-compressed-tar=file-roller.desktop
@@ -665,7 +656,6 @@ application/x-extension-mp4=smplayer.desktop
 application/x-flac=smplayer.desktop
 application/x-gtar=file-roller.desktop
 application/x-gzip=file-roller.desktop
-application/xhtml+xml=google-chrome.desktop
 application/xhtml+xml=google-chrome.desktop
 application/xhtml_xml=google-chrome.desktop
 application/xls=google-chrome.desktop
