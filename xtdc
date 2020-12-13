@@ -53,4 +53,38 @@ mv /tmp/"$arquivo" "$HOME/Imagens"/captura_de_tela_"$agora".png
 xtdc_rascunho(){
 xclip -selection clipboard -o > $HOME/Documentos/rascunho_"$(date +%Y_%m_%d_%H_%M_%S).txt"
 }
+
+
+
+xtdc_testa_install(){
+programas=""
+for pkg in $programas
+do
+dpkg -s $pkg &> /dev/null
+
+if [ $? -eq 0 ]; then
+    echo "$pkg INSTALADO"
+else
+    echo "$pkg NÃO INSTALADO"
+fi
+
+done
+}
+
+
+
+
+xtdc_lista_last(){
+clear
+for arq in $(ls *.sh)
+do
+last=$(date -r "$arq" "+%Y_%m_%d_%H_%M_%S")
+echo -e $arq $last 
+done
+}
+
+
+
+
+
 $1
