@@ -22,6 +22,7 @@ Preferi fazer uma função que executasse a adição dos ppas por linha
 
 
 ###xtdc_pkg
+
 Instala os programas escolhidos
 Diferente da xtdc_ppa, aqui eu listei os programas por grupos em uma variável de uma linha
 O rclone é instalado via script com curl, que é instalado antes de tudo
@@ -47,6 +48,7 @@ Acessórios
 
 
 ###xtdc_chrome
+
 Instala o Chrome e algumas extensões
      Adblock Plus - bloqueador de anúncios grátis
      Os anúncios bloqueados para Youtube™
@@ -60,35 +62,44 @@ Instala o Chrome e algumas extensões
 
 
 ###xtdc_limpa_atalhos
+
 Limpa as traduções dos atalhos
 Esconde os que não estarão disponíveis para usuário via menu de aplicativos
 
 
 ###xtdc_atalhos
+
 Cria os atalhos para os programas disponíveis para usuário via menu de aplicativos
 
 
 ###xtdc_limpa_pkg
+
 Desinstala programas que não serão utilizados
 
 ###xtdc_exe
+
 Cria um arquivo xtdc na pasta bin para algumas funções como o xtdc_printa e xtdc_rascunho
 
 ###gred
+
 Função que faz o download via wget de uma url reduzida (bit.do) que aponta para o Google Drive
 
 
 ###xtdc_tema
+
 Instala o pacote de ícones, tema, fontes ttf, painel, skel e programas próprios xtdc
 
 
 ###xtdc_lista_func
+
 Lista as funções do script
 
 
 ###xtdc_2020_install
+
 Roda todas as funções anteriores
 
-Rodar o script de instalação online direto
 
-"wget -qO xtdc_2020_install.sh https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc_2020_install.sh && source xtdc_2020_install.sh"
+Rodar o script de instalação online direto:
+
+wget -qO xtdc_2020_install.sh https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc_2020_install.sh && source xtdc_2020_install.sh
