@@ -90,4 +90,5 @@ Lista as funções do script
 Roda todas as funções anteriores
 
 Rodar o script de instalação online direto
-wget -qO xtdc_2020_install.sh https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc_2020_install.sh && source xtdc_2020_install.sh
+
+"wget -qO xtdc_2020_install.sh https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc_2020_install.sh && source xtdc_2020_install.sh"
