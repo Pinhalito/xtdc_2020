@@ -29,36 +29,36 @@ O rclone é instalado via script com curl, que é instalado antes de tudo
 Principais aplicativos
 
 Internet
-     Google Chrome + Extensões
-     Rclone Browser
+Google Chrome + Extensões
+Rclone Browser
      
 Multimídia
-     SMPlayer
-     Simplescreenrecorder
+SMPlayer
+Simplescreenrecorder
      
 Office
-     Geany (editor de textos simples)
-     Google Docs e Google Planilhas através de extensão do Chrome
-     Evince PDF
+Geany (editor de textos simples)
+Google Docs e Google Planilhas através de extensão do Chrome
+Evince PDF
      
 Acessórios
-     Calculadora SpeedCrunch
-     Atalhos para printscreen (Print Screen) - seleciona uma região na tela, salva a foto com a data e carrega para área de transferência
-     Atalhos para rascunhos (Ctrl+Alt+C) - salva o texto da área de transferência, renomeia com a data
+Calculadora SpeedCrunch
+Atalhos para printscreen (Print Screen) - seleciona uma região na tela, salva a foto com a data e carrega para área de transferência
+Atalhos para rascunhos (Ctrl+Alt+C) - salva o texto da área de transferência, renomeia com a data
 
 
 ###xtdc_chrome
 
 Instala o Chrome e algumas extensões
-     Adblock Plus - bloqueador de anúncios grátis
-     Os anúncios bloqueados para Youtube™
-     Downloads
-     Google Tradutor
-     Configurações especiais para Youtube
-     Planilhas
-     Documentos
-     Documentos OFFILNE
-     Editor do Office
+Adblock Plus - bloqueador de anúncios grátis
+Os anúncios bloqueados para Youtube™
+Downloads
+Google Tradutor
+Configurações especiais para Youtube
+Planilhas
+Documentos
+Documentos OFFILNE
+Editor do Office
 
 
 ###xtdc_limpa_atalhos
