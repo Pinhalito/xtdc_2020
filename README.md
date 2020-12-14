@@ -28,20 +28,20 @@ Diferente da xtdc_ppa, aqui eu listei os programas por grupos em uma variável d
 O rclone é instalado via script com curl, que é instalado antes de tudo
 Principais aplicativos
 
-Internet
+Internet - 
 Google Chrome + Extensões
 Rclone Browser
      
-Multimídia
+Multimídia - 
 SMPlayer
 Simplescreenrecorder
      
-Office
+Office - 
 Geany (editor de textos simples)
 Google Docs e Google Planilhas através de extensão do Chrome
 Evince PDF
      
-Acessórios
+Acessórios - 
 Calculadora SpeedCrunch
 Atalhos para printscreen (Print Screen) - seleciona uma região na tela, salva a foto com a data e carrega para área de transferência
 Atalhos para rascunhos (Ctrl+Alt+C) - salva o texto da área de transferência, renomeia com a data
