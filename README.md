@@ -16,71 +16,71 @@ Script de criação de uma remaster XTDC_2020
 Alguns pontos sobre as funções
 
 **xtdc_ppa**<br>
-Aplica os ppas para termos as versões mais recentes de vários programas.
-Preferi fazer uma função que executasse a adição dos ppas por linha.
+Aplica os ppas para termos as versões mais recentes de vários programas.<br>
+Preferi fazer uma função que executasse a adição dos ppas por linha.<br>
 
 
 **xtdc_pkg**<br>
-Instala os programas escolhidos
-Diferente da xtdc_ppa, aqui eu listei os programas por grupos em uma variável de uma linha.
-O rclone é instalado via script com curl, que é instalado antes de tudo.
+Instala os programas escolhidos.<br>
+Diferente da xtdc_ppa, aqui eu listei os programas por grupos em uma variável de uma linha.<br>
+O rclone é instalado via script com curl, que é instalado antes de tudo.<br>
 
-Principais aplicativos
-*Internet
-Google Chrome + Extensões
-Rclone Browser*
+Principais aplicativos<br>
+*Internet<br>
+Google Chrome + Extensões<br>
+Rclone Browser*<br>
      
-Multimídia
-*SMPlayer
-Simplescreenrecorder*
+Multimídia<br>
+*SMPlayer<br>
+Simplescreenrecorder*<br>
      
-Office
-*Geany (editor de textos simples)
-Google Docs e Google Planilhas através de extensão do Chrome
-Evince PDF*
+Office<br>
+*Geany (editor de textos simples)<br>
+Google Docs e Google Planilhas através de extensão do Chrome<br>
+Evince PDF*<br>
      
-Acessórios
-*Calculadora SpeedCrunch
-Atalhos para printscreen (Print Screen) - seleciona uma região na tela, salva a foto com a data e carrega para área de transferência.
-Atalhos para rascunhos (Ctrl+Alt+C) - salva o texto da área de transferência, renomeia com a data.*
+Acessórios<br>
+*Calculadora SpeedCrunch<br>
+Atalhos para printscreen (Print Screen) - seleciona uma região na tela, salva a foto com a data e carrega para área de transferência.<br>
+Atalhos para rascunhos (Ctrl+Alt+C) - salva o texto da área de transferência, renomeia com a data.*<br>
 
 **xtdc_chrome**<br>
-Instala o Chrome e algumas extensões.
-
-*Adblock Plus - bloqueador de anúncios grátis
-Os anúncios bloqueados para Youtube™
-Downloads
-Google Tradutor
-Configurações especiais para Youtube
-Planilhas
-Documentos
-Documentos OFFILNE
-Editor do Office*
+Instala o Chrome e algumas extensões.<br>
+<br>
+*Adblock Plus - bloqueador de anúncios grátis<br>
+Os anúncios bloqueados para Youtube™<br>
+Downloads<br>
+Google Tradutor<br>
+Configurações especiais para Youtube<br>
+Planilhas<br>
+Documentos<br>
+Documentos OFFILNE<br>
+Editor do Office*<br>
 
 **xtdc_limpa_atalhos**<br>
-Limpa as traduções dos atalhos.
-Esconde os que não estarão disponíveis para usuário via menu de aplicativos.
+Limpa as traduções dos atalhos.<br>
+Esconde os que não estarão disponíveis para usuário via menu de aplicativos.<br>
 
 **xtdc_atalhos**<br>
-Cria os atalhos para os programas disponíveis para usuário via menu de aplicativos.
+Cria os atalhos para os programas disponíveis para usuário via menu de aplicativos.<br>
 
 **xtdc_limpa_pkg**<br>
-Desinstala programas que não serão utilizados.
+Desinstala programas que não serão utilizados.<br>
 
 **xtdc_exe**<br>
-Cria um arquivo xtdc na pasta bin para algumas funções como o xtdc_printa e xtdc_rascunho.
+Cria um arquivo xtdc na pasta bin para algumas funções como o xtdc_printa e xtdc_rascunho.<br>
 
 **gred**<br>
-Função que faz o download via wget de uma url reduzida (bit.do) que aponta para o Google Drive.
+Função que faz o download via wget de uma url reduzida (bit.do) que aponta para o Google Drive.<br>
 
 **xtdc_tema**<br>
-Instala o pacote de ícones, tema, fontes ttf, painel, skel e programas próprios xtdc.
+Instala o pacote de ícones, tema, fontes ttf, painel, skel e programas próprios xtdc.<br>
 
 **xtdc_lista_func**<br>
-Lista as funções do script.
+Lista as funções do script.<br>
 
 **xtdc_2020_install**<br>
-Roda todas as funções anteriores.
+Roda todas as funções anteriores.<br>
 
 Rodar o script de instalação online direto:<br><br>
 
