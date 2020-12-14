@@ -15,42 +15,39 @@ Script de criação de uma remaster XTDC_2020
 
 Alguns pontos sobre as funções
 
-###xtdc_ppa
+**xtdc_ppa**<br>
+Aplica os ppas para termos as versões mais recentes de vários programas.
+Preferi fazer uma função que executasse a adição dos ppas por linha.
 
-Aplica os ppas para termos as versões mais recentes de vários programas
-Preferi fazer uma função que executasse a adição dos ppas por linha
 
-
-###xtdc_pkg
-
+**xtdc_pkg**<br>
 Instala os programas escolhidos
-Diferente da xtdc_ppa, aqui eu listei os programas por grupos em uma variável de uma linha
-O rclone é instalado via script com curl, que é instalado antes de tudo
+Diferente da xtdc_ppa, aqui eu listei os programas por grupos em uma variável de uma linha.
+O rclone é instalado via script com curl, que é instalado antes de tudo.
+
 Principais aplicativos
-
-Internet - 
+*Internet
 Google Chrome + Extensões
-Rclone Browser
+Rclone Browser*
      
-Multimídia - 
-SMPlayer
-Simplescreenrecorder
+Multimídia
+*SMPlayer
+Simplescreenrecorder*
      
-Office - 
-Geany (editor de textos simples)
+Office
+*Geany (editor de textos simples)
 Google Docs e Google Planilhas através de extensão do Chrome
-Evince PDF
+Evince PDF*
      
-Acessórios - 
-Calculadora SpeedCrunch
-Atalhos para printscreen (Print Screen) - seleciona uma região na tela, salva a foto com a data e carrega para área de transferência
-Atalhos para rascunhos (Ctrl+Alt+C) - salva o texto da área de transferência, renomeia com a data
+Acessórios
+*Calculadora SpeedCrunch
+Atalhos para printscreen (Print Screen) - seleciona uma região na tela, salva a foto com a data e carrega para área de transferência.
+Atalhos para rascunhos (Ctrl+Alt+C) - salva o texto da área de transferência, renomeia com a data.*
 
+**xtdc_chrome**<br>
+Instala o Chrome e algumas extensões.
 
-###xtdc_chrome
-
-Instala o Chrome e algumas extensões
-Adblock Plus - bloqueador de anúncios grátis
+*Adblock Plus - bloqueador de anúncios grátis
 Os anúncios bloqueados para Youtube™
 Downloads
 Google Tradutor
@@ -58,48 +55,33 @@ Configurações especiais para Youtube
 Planilhas
 Documentos
 Documentos OFFILNE
-Editor do Office
+Editor do Office*
 
+**xtdc_limpa_atalhos**<br>
+Limpa as traduções dos atalhos.
+Esconde os que não estarão disponíveis para usuário via menu de aplicativos.
 
-###xtdc_limpa_atalhos
+**xtdc_atalhos**<br>
+Cria os atalhos para os programas disponíveis para usuário via menu de aplicativos.
 
-Limpa as traduções dos atalhos
-Esconde os que não estarão disponíveis para usuário via menu de aplicativos
+**xtdc_limpa_pkg**<br>
+Desinstala programas que não serão utilizados.
 
+**xtdc_exe**<br>
+Cria um arquivo xtdc na pasta bin para algumas funções como o xtdc_printa e xtdc_rascunho.
 
-###xtdc_atalhos
+**gred**<br>
+Função que faz o download via wget de uma url reduzida (bit.do) que aponta para o Google Drive.
 
-Cria os atalhos para os programas disponíveis para usuário via menu de aplicativos
+**xtdc_tema**<br>
+Instala o pacote de ícones, tema, fontes ttf, painel, skel e programas próprios xtdc.
 
+**xtdc_lista_func**<br>
+Lista as funções do script.
 
-###xtdc_limpa_pkg
+**xtdc_2020_install**<br>
+Roda todas as funções anteriores.
 
-Desinstala programas que não serão utilizados
+Rodar o script de instalação online direto:<br><br>
 
-###xtdc_exe
-
-Cria um arquivo xtdc na pasta bin para algumas funções como o xtdc_printa e xtdc_rascunho
-
-###gred
-
-Função que faz o download via wget de uma url reduzida (bit.do) que aponta para o Google Drive
-
-
-###xtdc_tema
-
-Instala o pacote de ícones, tema, fontes ttf, painel, skel e programas próprios xtdc
-
-
-###xtdc_lista_func
-
-Lista as funções do script
-
-
-###xtdc_2020_install
-
-Roda todas as funções anteriores
-
-
-Rodar o script de instalação online direto:
-
-wget -qO xtdc_2020_install.sh https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc_2020_install.sh && source xtdc_2020_install.sh
+**wget -qO xtdc_2020_install.sh https://raw.githubusercontent.com/Pinhalito/xtdc_2020/master/xtdc_2020_install.sh && source xtdc_2020_install.sh**
